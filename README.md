@@ -10,15 +10,28 @@
 
 PdfMaster facilita la creación de documentos PDF en aplicaciones Android, permitiendo personalizar la apariencia y el contenido de los archivos PDF generados. La biblioteca es flexible, permitiendo agregar diferentes tipos de contenido y extensiones mediante plugins.
 
-## Instalación
+##Instalación
+Para utilizar PdfMaster en tu proyecto, primero debes añadir el archivo JAR a tu proyecto y configurar tu archivo build.gradle.kts (o build.gradle si usas Groovy) para incluirlo como una dependencia.
 
-Para utilizar PdfMaster en tu proyecto, primero debes agregar la dependencia en tu archivo `build.gradle.kts` (o `build.gradle` si usas Groovy). Si estás publicando la biblioteca en un repositorio de Maven o en JitPack, puedes incluirla como sigue:
+1. Agregar el JAR al Proyecto
+Coloca el archivo JAR en el directorio adecuado:
 
-```kotlin
-dependencies {
-    implementation("com.yourcompany:pdfmaster:1.0.0") // Reemplaza con el grupo y versión correctos
+Copia el archivo JAR (por ejemplo, PdfMaster-1.0.0.jar) en un directorio de tu proyecto, como libs.
+Actualizar el archivo build.gradle.kts:
+
+Asegúrate de que tu proyecto reconozca el JAR como una dependencia. Añade lo siguiente a tu archivo build.gradle.kts:
+
+kotlin
+Copiar código
+repositories {
+    flatDir {
+        dirs("libs") // Reemplaza con la ruta a tu directorio de JAR
+    }
 }
-```
+
+dependencies {
+    implementation("com.github.Eskanor1313:PdfMaster:1.0.0") // Reemplaza con el grupo y versión correctos
+}
 
 ## Uso
 
@@ -26,7 +39,7 @@ Aquí tienes un ejemplo básico de cómo usar PdfMaster para generar un PDF:
 
 ```kotlin
 import java.io.FileOutputStream
-import com.aplication.PdfMaster.PdfCreator
+import com.aplication.PdfMaster.PdfCreator         --reemplazar con la ruta que de directorio tu jar si decides usar el mismo
 
 fun main() {
     val pdfCreator = PdfCreator()
